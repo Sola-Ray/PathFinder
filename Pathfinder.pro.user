@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.12.2, 2021-05-28T17:23:15. -->
+<!-- Written by QtCreator 4.12.2, 2021-06-04T17:44:06. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -387,16 +387,16 @@
     <value type="QString" key="Mer.RunConfig.AlternateRemoteExecutable"></value>
     <value type="bool" key="Mer.RunConfig.UseAlternateRemoteExecutable">false</value>
     <value type="bool" key="MerRunConfiguration.DebugBypassOpenSslArmCapEnabled">true</value>
-    <value type="QString" key="MerRunConfiguration.QmlLiveBenchWorkspace">C:/Users/Utilisateur/Pathfinder</value>
+    <value type="QString" key="MerRunConfiguration.QmlLiveBenchWorkspace">C:/Users/Utilisateur/pathfinder</value>
     <value type="bool" key="MerRunConfiguration.QmlLiveEnabled">false</value>
     <value type="int" key="MerRunConfiguration.QmlLiveIpcPort">-1</value>
     <value type="int" key="MerRunConfiguration.QmlLiveOptions">3</value>
     <value type="QString" key="MerRunConfiguration.QmlLiveTargetWorkspace"></value>
     <value type="int" key="PE.EnvironmentAspect.Base">1</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Pathfinder (on Sailfish OS Emulator 4.0.1.48)</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">QmakeProjectManager.MerRunConfiguration:C:/Users/Utilisateur/Pathfinder/Pathfinder.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/Utilisateur/Pathfinder/Pathfinder.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Pathfinder (on Sailfish OS Emulator 4.0.1.48)2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">QmakeProjectManager.MerRunConfiguration:C:/Users/Utilisateur/pathfinder/Pathfinder.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/Utilisateur/pathfinder/Pathfinder.pro</value>
     <value type="int" key="RemoteLinux.EnvironmentAspect.Version">1</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>

@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import QtQuick.LocalStorage 2.0
 
 Page {
     id: page
@@ -57,6 +58,17 @@ Page {
             }
             Button {
                 text: qsTr("Démarrer")
+//                function loadData() {
+//                    var db = LocalStorage.openDatabaseSync("pathfinderfr-data.db", "1.0", "Pathfinder Data", 1000000)
+
+//                    db.transaction(function(tx) {
+//                        var results = tx.executeSql('SELECT name FROM skills')
+//                        for (var i = 0; i < results.rows.length; i++) {
+//                            console.log(results.rows.item(i))
+//                        }
+//                    })
+//                }
+                onClicked: loadData()
             }
 
         }

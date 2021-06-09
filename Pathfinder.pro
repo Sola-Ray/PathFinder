@@ -14,7 +14,8 @@ TARGET = Pathfinder
 
 CONFIG += sailfishapp
 
-SOURCES += src/Pathfinder.cpp
+SOURCES += src/Pathfinder.cpp \
+    src/pathfinderapp.cpp
 
 DISTFILES += qml/Pathfinder.qml \
     qml/cover/CoverPage.qml \
@@ -23,6 +24,7 @@ DISTFILES += qml/Pathfinder.qml \
     qml/pages/FavPage \
     qml/pages/FavPage.qml \
     qml/pages/HomePage.qml \
+    res/pathfinderfr-data.db \
     rpm/Pathfinder.changes.in \
     rpm/Pathfinder.changes.run.in \
     rpm/Pathfinder.spec \
@@ -41,3 +43,11 @@ CONFIG += sailfishapp_i18n
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
 TRANSLATIONS += translations/Pathfinder-de.ts
+
+HEADERS += \
+    src/pathfinderapp.h
+
+QT += sql
+
+RESOURCES += \
+    MyRes.qrc

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/pathfinderfr-data.db</file>
+    </qresource>
+</RCC>

@@ -3,6 +3,7 @@
 #endif
 
 #include <sailfishapp.h>
+#include "pathfinderapp.h"
 
 int main(int argc, char *argv[])
 {
@@ -10,7 +11,7 @@ int main(int argc, char *argv[])
 //    auto app = SailfishApp::application(argc, argv);
 //    auto view = SailfishApp::createView();
 
-//    NetworkInterface ni;
+    PathFinderApp pApp;
 
 //    view->rootContext()->setContextProperty("NI", &ni);
 //    view->setSource(SailfishApp::pathToMainQml());

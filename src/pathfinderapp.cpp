@@ -3,10 +3,9 @@
 PathFinderApp::PathFinderApp()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName(":/res/pathfinderfr-data.db");
+    db.setDatabaseName("/usr/share/Pathfinder/res/pathfinderfr-data.db");
 
     if(!db.open()) {
-        cout << "Error load db" << endl;
         qDebug() << db.lastError();
     } else {
         qDebug() << db.connectionName();
@@ -14,10 +13,13 @@ PathFinderApp::PathFinderApp()
         qDebug() << db.contains();
 
         qDebug() << db.tables();
+
         QSqlQuery query(db);
-        query.prepare("SELECT * FROM feats");
+        query.exec("SELECT * FROM feats");
         while(query.next()) {
-            qDebug("id = %d, name = %s.", query.value(0).toInt(), qPrintable(query.value(2).toString()));
+            int id = query.value(0).toInt();
+            QString feat = query.value(1).toString();
+            qDebug() << id << feat;
         }
     }
 

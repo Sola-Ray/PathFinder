@@ -15,6 +15,7 @@ TARGET = Pathfinder
 CONFIG += sailfishapp
 
 SOURCES += src/Pathfinder.cpp \
+    src/feats.cpp \
     src/pathfinderapp.cpp
 
 DISTFILES += qml/Pathfinder.qml \
@@ -30,7 +31,8 @@ DISTFILES += qml/Pathfinder.qml \
     rpm/Pathfinder.spec \
     rpm/Pathfinder.yaml \
     translations/*.ts \
-    Pathfinder.desktop
+    Pathfinder.desktop \
+    res/pathfinderfr-data.db
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
 
@@ -44,10 +46,17 @@ CONFIG += sailfishapp_i18n
 # modify the localized app name in the the .desktop file.
 TRANSLATIONS += translations/Pathfinder-de.ts
 
+database.files = res
+database.path = /usr/share/$${TARGET}
+
+
 HEADERS += \
+    src/feats.h \
     src/pathfinderapp.h
 
 QT += sql
 
 RESOURCES += \
     MyRes.qrc
+
+INSTALLS += database

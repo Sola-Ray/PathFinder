@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>res/pathfinderfr-data.db</file>
+        <file>res/fav.png</file>
     </qresource>
 </RCC>

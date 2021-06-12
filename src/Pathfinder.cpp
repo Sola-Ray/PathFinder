@@ -3,21 +3,26 @@
 #endif
 
 #include <sailfishapp.h>
+#include "featsmodel.h"
 #include "pathfinderapp.h"
 
 int main(int argc, char *argv[])
 {
-
-//    auto app = SailfishApp::application(argc, argv);
-//    auto view = SailfishApp::createView();
-
+    FeatsModel model;
     PathFinderApp pApp;
 
-//    view->rootContext()->setContextProperty("NI", &ni);
-//    view->setSource(SailfishApp::pathToMainQml());
-//    view->show();
+    model.addFeats(new Feats(0, 0, "Oui", "Oui", "", "", "", "", "", "", "", "", ""));
 
-//    return app->exec();
+    auto app = SailfishApp::application(argc, argv);
+    auto view = SailfishApp::createView();
 
-    return SailfishApp::main(argc, argv);
+    view->rootContext()->setContextProperty("featsModel", &model);
+    qmlRegisterType<Feats>("Feats", 1, 0, "Feat");
+
+    view->setSource(SailfishApp::pathToMainQml());
+    view->show();
+
+    return app->exec();
+
+    //return SailfishApp::main(argc, argv);
 }

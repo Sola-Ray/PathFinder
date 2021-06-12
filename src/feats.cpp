@@ -1,8 +1,12 @@
 #include "feats.h"
 
-Feats::Feats(const int &id, const int &version, const QString &name, const QString &description, const QString &reference, const QString &source,
-             const QString &summary, const QString &category, const QString &conditions, const QString &requires, const QString &advantage,
-             const QString &special, const QString &normal) : m_id(id), m_version(version), m_name(name), m_description(description), m_reference(reference),
+Feats::Feats()
+{
+}
+
+Feats::Feats(const int id, const int version, const QString name, const QString description, const QString reference, const QString source,
+             const QString summary, const QString category, const QString conditions, const QString requires, const QString advantage,
+             const QString special, const QString normal) : m_id(id), m_version(version), m_name(name), m_description(description), m_reference(reference),
              m_source(source), m_summary(summary), m_category(category), m_conditions(conditions), m_requires(requires), m_advantage(advantage),
              m_special(special), m_normal(normal)
 {
@@ -31,6 +35,16 @@ int Feats::version() const
 QString Feats::name() const
 {
     return m_name;
+}
+
+QString Feats::source() const
+{
+    return m_source;
+}
+
+QString Feats::summary() const
+{
+    return m_summary;
 }
 
 QString Feats::description() const

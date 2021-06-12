@@ -9,20 +9,16 @@
     </message>
 </context>
 <context>
-    <name>DonsPage</name>
+    <name>FavPage</name>
     <message>
-        <source>Dons</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Don</source>
+        <source>Favoris</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>FavPage</name>
+    <name>FeatsPage</name>
     <message>
-        <source>Favoris</source>
+        <source>Dons</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

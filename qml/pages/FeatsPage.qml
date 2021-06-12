@@ -8,21 +8,21 @@ Page {
     allowedOrientations: Orientation.All
 
     SilicaListView {
-        id: listView
-        model: 20
+        id: listFears
+        model: featsModel
         anchors.fill: parent
         header: PageHeader {
             title: qsTr("Dons")
         }
-        delegate: BackgroundItem {
+        delegate: FeatItem {
             id: delegate
 
-            Label {
-                x: Theme.horizontalPageMargin
-                text: qsTr("Don") + " " + index
-                anchors.verticalCenter: parent.verticalCenter
-                color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
-            }
+//            Label {
+//                x: Theme.horizontalPageMargin
+//                text: qsTr("Don") + " " + index
+//                anchors.verticalCenter: parent.verticalCenter
+//                color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
+//            }
             onClicked: pageStack.push(Qt.resolvedUrl("DetailDonPage.qml"))
         }
         VerticalScrollDecorator {}

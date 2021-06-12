@@ -16,14 +16,16 @@ CONFIG += sailfishapp
 
 SOURCES += src/Pathfinder.cpp \
     src/feats.cpp \
+    src/featsmodel.cpp \
     src/pathfinderapp.cpp
 
 DISTFILES += qml/Pathfinder.qml \
     qml/cover/CoverPage.qml \
-    qml/pages/DetailDonPage.qml \
-    qml/pages/DonsPage.qml \
+    qml/pages/DetailFeatPage.qml \
     qml/pages/FavPage \
     qml/pages/FavPage.qml \
+    qml/pages/FeatItem.qml \
+    qml/pages/FeatsPage.qml \
     qml/pages/HomePage.qml \
     res/pathfinderfr-data.db \
     rpm/Pathfinder.changes.in \
@@ -52,6 +54,7 @@ database.path = /usr/share/$${TARGET}
 
 HEADERS += \
     src/feats.h \
+    src/featsmodel.h \
     src/pathfinderapp.h
 
 QT += sql

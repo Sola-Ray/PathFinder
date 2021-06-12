@@ -3,26 +3,26 @@
 
 #include <QObject>
 
-
 class Feats : public QObject
 {
     Q_OBJECT
 
 public:
-    Feats(const int &id, const int &version, const QString &name, const QString &description, const QString &reference, const QString &source, const QString &summary,
-          const QString &category, const QString &conditions, const QString &requires, const QString &advantage, const QString &special, const QString &normal);
+    Feats();
+    Feats(const int id, const int version, const QString name, const QString description, const QString reference, const QString source, const QString summary,
+          const QString category, const QString conditions, const QString requires, const QString advantage, const QString special, const QString normal);
 
-    Q_PROPERTY(QSTRING name READ name WRITE setName NOTIFY nameChanged)
-    Q_PROPERTY(QSTRING description READ description WRITE setDescription NOTIFY descriptionChanged)
-    Q_PROPERTY(QSTRING reference READ reference WRITE setReference NOTIFY referenceChanged)
-    Q_PROPERTY(QSTRING source READ source WRITE setSource NOTIFY sourceChanged)
-    Q_PROPERTY(QSTRING summary READ summary WRITE setSummary NOTIFY summaryChanged)
-    Q_PROPERTY(QSTRING category READ category WRITE setCategory NOTIFY categoryChanged)
-    Q_PROPERTY(QSTRING conditions READ conditions WRITE setConditions NOTIFY conditionsChanged)
-    Q_PROPERTY(QSTRING requires READ requires WRITE setRequires NOTIFY requiresChanged)
-    Q_PROPERTY(QSTRING advantage READ advantage WRITE setAdvantage NOTIFY advantageChanged)
-    Q_PROPERTY(QSTRING special READ special WRITE setSpecial NOTIFY specialChanged)
-    Q_PROPERTY(QSTRING normal READ normal WRITE setNormal NOTIFY normalChanged)
+    Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
+    Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged)
+    Q_PROPERTY(QString reference READ reference WRITE setReference NOTIFY referenceChanged)
+    Q_PROPERTY(QString source READ source WRITE setSource NOTIFY sourceChanged)
+    Q_PROPERTY(QString summary READ summary WRITE setSummary NOTIFY summaryChanged)
+    Q_PROPERTY(QString category READ category WRITE setCategory NOTIFY categoryChanged)
+    Q_PROPERTY(QString conditions READ conditions WRITE setConditions NOTIFY conditionsChanged)
+    Q_PROPERTY(QString requires READ requires WRITE setRequires NOTIFY requiresChanged)
+    Q_PROPERTY(QString advantage READ advantage WRITE setAdvantage NOTIFY advantageChanged)
+    Q_PROPERTY(QString special READ special WRITE setSpecial NOTIFY specialChanged)
+    Q_PROPERTY(QString normal READ normal WRITE setNormal NOTIFY normalChanged)
 
     void setId(int id);
     void setVersion(int version);
@@ -30,6 +30,8 @@ public:
     int id() const;
     int version() const;
     QString name() const;
+    QString source() const;
+    QString summary() const;
     QString description() const;
     QString reference() const;
     QString category() const;

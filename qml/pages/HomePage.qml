@@ -41,7 +41,7 @@ Page {
             Row {
                 Button {
                     text: qsTr("Dons")
-                    onClicked: pageStack.push(Qt.resolvedUrl("DonsPage.qml"))
+                    onClicked: pageStack.push(Qt.resolvedUrl("FeatsPage.qml"))
                 }
 
                 Button {

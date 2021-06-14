@@ -29,10 +29,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Démarrer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Accueil Pathfinder</source>
         <translation type="unfinished"></translation>
     </message>

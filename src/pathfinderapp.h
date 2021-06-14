@@ -3,6 +3,7 @@
 
 #include <QSqlDatabase>
 #include <QSqlQuery>
+#include "featsmodel.h"
 #include "iostream"
 #include <QDebug>
 #include <QSqlError>
@@ -14,6 +15,7 @@ class PathFinderApp
 {
 public:
     PathFinderApp();
+    void loadData(FeatsModel &model);
 };
 
 #endif // PATHFINDERAPP_H

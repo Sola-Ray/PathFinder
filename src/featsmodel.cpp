@@ -31,6 +31,8 @@ QVariant FeatsModel::data(const QModelIndex &index, int role) const
             return feats->name();
         case IdRole:
             return feats->id();
+        case DetailRole:
+            return QVariant::fromValue(feats);
         default:
             return QVariant();
     }
@@ -93,5 +95,6 @@ QHash<int, QByteArray> FeatsModel::roleNames() const
     QHash<int, QByteArray> roles;
     roles[NameRole] = "name";
     roles[IdRole] = "id";
+    roles[DetailRole] = "detailFeat";
     return roles;
 }

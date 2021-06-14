@@ -6,17 +6,9 @@ ListItem {
     contentHeight: 50
 
     Row {
-        Label { text: index + " - " }
-
-        TextInput {
+        Label {
             text: name
-            onAccepted: {
-                name = text
-                focus = false
-            }
         }
-
-        Label { text: " -> " + id }
     }
 
     menu: ContextMenu {

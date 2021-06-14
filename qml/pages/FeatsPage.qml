@@ -23,7 +23,7 @@ Page {
 //                anchors.verticalCenter: parent.verticalCenter
 //                color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
 //            }
-            onClicked: pageStack.push(Qt.resolvedUrl("DetailDonPage.qml"))
+            onClicked: pageStack.push("DetailFeatPage.qml", { feat: detailFeat } )
         }
         VerticalScrollDecorator {}
         SearchField {}

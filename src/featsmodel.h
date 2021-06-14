@@ -12,7 +12,8 @@ class FeatsModel : public QAbstractListModel
 public:
     enum FeatsRoles {
         NameRole = Qt::UserRole + 1,
-        IdRole
+        IdRole,
+        DetailRole
     };
     FeatsModel(QObject *parent = 0);
 

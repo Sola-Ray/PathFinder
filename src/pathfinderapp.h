@@ -16,6 +16,7 @@ class PathFinderApp
 public:
     PathFinderApp();
     void loadData(FeatsModel &model);
+    //void loadFav(FeatsModel &model);
 };
 
 #endif // PATHFINDERAPP_H

@@ -10,9 +10,24 @@ void FeatsModel::addFeats(Feats *feats)
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
 
     m_feats.push_back(feats);
+    //addFavFeats(feats);
 
     endInsertRows();
 }
+
+/*void FeatsModel::addFavFeats(Feats *feats)
+{
+    if(feats->isFav()) {
+        m_fav.push_back(feats);
+    }
+}
+
+void FeatsModel::removeFavFeats(Feats *feats)
+{
+    if(!feats->isFav()) {
+        m_fav.removeOne(feats);
+    }
+}*/
 
 int FeatsModel::rowCount(const QModelIndex &parent) const
 {
@@ -33,6 +48,8 @@ QVariant FeatsModel::data(const QModelIndex &index, int role) const
             return feats->id();
         case DetailRole:
             return QVariant::fromValue(feats);
+        case FavRole:
+            return feats->isFav();
         default:
             return QVariant();
     }
@@ -51,6 +68,8 @@ bool FeatsModel::setData(const QModelIndex &index, const QVariant &value, int ro
         feats->setName(value.toString());
     if(role == IdRole)
         return false;
+    if(role == FavRole)
+        feats->setIsFav(value.toBool());
 
     QVector<int> roles;
     roles.append(role);
@@ -83,7 +102,7 @@ bool FeatsModel::insertRows(int row, int count, const QModelIndex &parent)
     beginInsertRows(parent, row, row + count - 1);
 
     for(int n = 0; n < count; ++n) {
-        m_feats.insert(row, new Feats(0, 0, "Oui", "Oui", "", "", "", "", "", "", "", "", ""));
+        m_feats.insert(row, new Feats(0, 0, "Oui", "Oui", "", "", "", "", "", "", "", "", "", false));
     }
 
     endInsertRows();
@@ -96,5 +115,6 @@ QHash<int, QByteArray> FeatsModel::roleNames() const
     roles[NameRole] = "name";
     roles[IdRole] = "id";
     roles[DetailRole] = "detailFeat";
+    roles[FavRole] = "isFav";
     return roles;
 }

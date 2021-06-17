@@ -25,10 +25,6 @@
 <context>
     <name>HomePage</name>
     <message>
-        <source>Pour commencer, vous devez télécharger les données de l&apos;application en cliquant sur le bouton ci-dessous.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Accueil Pathfinder</source>
         <translation type="unfinished"></translation>
     </message>

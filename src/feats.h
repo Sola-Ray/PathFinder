@@ -10,7 +10,7 @@ class Feats : public QObject
 public:
     Feats();
     Feats(const int id, const int version, const QString name, const QString description, const QString reference, const QString source, const QString summary,
-          const QString category, const QString conditions, const QString requires, const QString advantage, const QString special, const QString normal);
+          const QString category, const QString conditions, const QString requires, const QString advantage, const QString special, const QString normal, const bool isFav);
 
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged)
@@ -26,9 +26,11 @@ public:
 
     void setId(int id);
     void setVersion(int version);
+    void setIsFav(bool isFav);
 
     int id() const;
     int version() const;
+    int isFav() const;
     QString name() const;
     QString source() const;
     QString summary() const;
@@ -70,6 +72,7 @@ signals:
 private:
     int m_id;
     int m_version;
+    bool m_isFav;
     QString m_name;
     QString m_description;
     QString m_reference;

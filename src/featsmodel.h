@@ -13,11 +13,15 @@ public:
     enum FeatsRoles {
         NameRole = Qt::UserRole + 1,
         IdRole,
-        DetailRole
+        DetailRole,
+        FavRole
     };
     FeatsModel(QObject *parent = 0);
 
     void addFeats(Feats *feats);
+
+    /*void addFavFeats(Feats *feats);
+    void removeFavFeats(Feats *feats);*/
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
@@ -34,6 +38,7 @@ public:
         QHash<int, QByteArray> roleNames() const override;
     private:
         QList<Feats*> m_feats;
+        //QList<Feats*> m_fav;
 };
 
 #endif // FEATSMODEL_H

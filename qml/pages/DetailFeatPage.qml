@@ -9,6 +9,25 @@ Page {
     PageHeader {
         title: feat.name
         id: header
+        IconButton {
+            icon.source: "fav.png"
+            icon.highlighted: feat.isFav
+
+            function setFav() {
+                if(!feat.isFav) {
+                    feat.isFav = true
+                    icon.highlighted = true
+                    console.log("Ajouté aux favoris !")
+                }
+                else {
+                    feat.isFav = false
+                    icon.highlighted = false
+                    console.log("Retiré des favoris !")
+                }
+            }
+            onClicked: setFav()
+            anchors.right: parent.right
+        }
     }
     id: detailPage
 
@@ -16,27 +35,34 @@ Page {
     allowedOrientations: Orientation.All
 
     Column {
-        IconButton {
-            icon.source: "fav.png"
-            onClicked: console.log("Ajouté aux favoris !")
-            anchors.right: parent.right
-        }
+        anchors.top: header.bottom
+        width: parent.width
 
         Label {
             id: lblUnlock
-            text: "Débloque :"
+            text: "Débloque : "
+            width: parent.width
+            wrapMode: "WordWrap"
         }
         Label {
-            text: "Source :"
+            text: "Source : " + feat.source
+            width: parent.width
+            wrapMode: "WordWrap"
         }
         Label {
-            text: "Catégorie :"
+            text: "Catégorie : " + feat.category
+            width: parent.width
+            wrapMode: "WordWrap"
         }
         Label {
-            text: "Conditions :"
+            text: "Conditions : " + feat.conditions
+            width: parent.width
+            wrapMode: "WordWrap"
         }
         Label {
-            text: "Description :"
+            text: "Description : " + feat.description
+            width: parent.width
+            wrapMode: "WordWrap"
         }
     }
 }

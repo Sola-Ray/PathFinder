@@ -9,22 +9,17 @@ Page {
 
     SilicaListView {
         id: listView
-        model: 20
+        model: featsModel
         anchors.fill: parent
         header: PageHeader {
             title: qsTr("Favoris")
         }
-        delegate: BackgroundItem {
+        delegate: FeatItem {
             id: delegate
-
-            Label {
-                x: Theme.horizontalPageMargin
-                text: qsTr("Favoris") + " " + index
-                anchors.verticalCenter: parent.verticalCenter
-                color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
-            }
-            onClicked: console.log("Clicked " + index)
+            onClicked: pageStack.push("DetailFeatPage.qml", { feat: detailFeat } )
         }
         VerticalScrollDecorator {}
     }
+
+
 }

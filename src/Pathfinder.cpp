@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
     PathFinderApp pApp;
 
     pApp.loadData(model);
+    //pApp.loadFav(model);
 
     auto app = SailfishApp::application(argc, argv);
     auto view = SailfishApp::createView();

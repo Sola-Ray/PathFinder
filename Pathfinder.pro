@@ -57,7 +57,9 @@ HEADERS += \
     src/featsmodel.h \
     src/pathfinderapp.h
 
-QT += sql
+QT += \
+    sql \
+    core
 
 RESOURCES += \
     MyRes.qrc

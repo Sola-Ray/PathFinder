@@ -8,7 +8,7 @@ Page {
     allowedOrientations: Orientation.All
 
     SilicaListView {
-        id: listFears
+        id: listFeats
         model: featsModel
         anchors.fill: parent
         header: PageHeader {

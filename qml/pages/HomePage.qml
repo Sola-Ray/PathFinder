@@ -31,7 +31,6 @@ Page {
         // of the page, followed by our content.
         Column {
             id: column
-
             width: page.width
             spacing: Theme.paddingLarge
             PageHeader {
@@ -50,27 +49,6 @@ Page {
                 }
                 width: parent.width
             }
-
-            Label {
-                text: qsTr("Pour commencer, vous devez télécharger les données de l'application en cliquant sur le bouton ci-dessous.")
-                width: parent.width
-                wrapMode: "WordWrap"
-            }
-//            Button {
-//                text: qsTr("Démarrer")
-////                function loadData() {
-////                    var db = LocalStorage.openDatabaseSync("pathfinderfr-data.db", "1.0", "Pathfinder Data", 1000000)
-
-////                    db.transaction(function(tx) {
-////                        var results = tx.executeSql('SELECT name FROM skills')
-////                        for (var i = 0; i < results.rows.length; i++) {
-////                            console.log(results.rows.item(i))
-////                        }
-////                    })
-////                }
-//                onClicked: loadData()
-//            }
-
         }
     }
 }

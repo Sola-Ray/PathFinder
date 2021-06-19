@@ -2,6 +2,7 @@
 #define FEATSMODEL_H
 
 #include "feats.h"
+#include "featslist.h"
 #include <QAbstractListModel>
 #include <QObject>
 
@@ -18,11 +19,6 @@ public:
     };
     FeatsModel(QObject *parent = 0);
 
-    void addFeats(Feats *feats);
-
-    /*void addFavFeats(Feats *feats);
-    void removeFavFeats(Feats *feats);*/
-
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
@@ -30,15 +26,16 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value,
                  int role = Qt::DisplayRole) override;
 
-    Q_INVOKABLE bool removeRows(int row, int count,
-                                const QModelIndex &parent = QModelIndex()) override;
     Q_INVOKABLE bool insertRows(int row, int count,
                                 const QModelIndex &parent = QModelIndex()) override;
+
+    Q_INVOKABLE void setList(FeatsList * list);
     protected:
         QHash<int, QByteArray> roleNames() const override;
     private:
-        QList<Feats*> m_feats;
-        //QList<Feats*> m_fav;
+        FeatsList * m_feats;
+    public slots:
+        void checkChanged(int index);
 };
 
 #endif // FEATSMODEL_H

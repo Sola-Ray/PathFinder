@@ -1,45 +1,21 @@
 #include "featsmodel.h"
 
-FeatsModel::FeatsModel(QObject *parent)
+FeatsModel::FeatsModel(QObject *parent) : QAbstractListModel(parent)
 {
 
 }
-
-void FeatsModel::addFeats(Feats *feats)
-{
-    beginInsertRows(QModelIndex(), rowCount(), rowCount());
-
-    m_feats.push_back(feats);
-    //addFavFeats(feats);
-
-    endInsertRows();
-}
-
-/*void FeatsModel::addFavFeats(Feats *feats)
-{
-    if(feats->isFav()) {
-        m_fav.push_back(feats);
-    }
-}
-
-void FeatsModel::removeFavFeats(Feats *feats)
-{
-    if(!feats->isFav()) {
-        m_fav.removeOne(feats);
-    }
-}*/
 
 int FeatsModel::rowCount(const QModelIndex &parent) const
 {
-    return m_feats.count();
+    return m_feats->size();
 }
 
 QVariant FeatsModel::data(const QModelIndex &index, int role) const
 {
-    if (index.row() < 0 || index.row() >= m_feats.count())
+    if (index.row() < 0 || index.row() >= m_feats->size())
         return QVariant();
 
-    Feats * feats = m_feats[index.row()];
+    auto feats = (*m_feats)[index.row()];
 
     switch (role) {
         case NameRole:
@@ -57,13 +33,13 @@ QVariant FeatsModel::data(const QModelIndex &index, int role) const
 
 bool FeatsModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
-    if(index.row() < 0  || index.row() >= m_feats.count())
+    if(index.row() < 0  || index.row() >= m_feats->size())
         return false;
 
     if(data(index, role) == value)
         return true;
 
-    Feats * feats = m_feats[index.row()];
+    auto feats = (*m_feats)[index.row()];
     if(role == NameRole)
         feats->setName(value.toString());
     if(role == IdRole)
@@ -75,38 +51,48 @@ bool FeatsModel::setData(const QModelIndex &index, const QVariant &value, int ro
     roles.append(role);
 
     QModelIndex topLeft = index.sibling(0, 0);
-    QModelIndex bottomRight = index.sibling(m_feats.count() -1, 0);
+    QModelIndex bottomRight = index.sibling(m_feats->size() -1, 0);
 
     emit dataChanged(topLeft, bottomRight, roles);
 
     return true;
 }
 
-bool FeatsModel::removeRows(int row, int count, const QModelIndex &parent)
-{
-    if(row < 0 || row + count >= m_feats.count())
-        return false;
 
-    beginRemoveRows(parent, row, row + count - 1);
 
-    for(int n = 0; n < count; ++n) {
-        m_feats.removeAt(row);
-    }
-
-    endRemoveRows();
-    return true;
-}
 
 bool FeatsModel::insertRows(int row, int count, const QModelIndex &parent)
 {
     beginInsertRows(parent, row, row + count - 1);
 
     for(int n = 0; n < count; ++n) {
-        m_feats.insert(row, new Feats(0, 0, "Oui", "Oui", "", "", "", "", "", "", "", "", "", false));
+        m_feats->insert(row, new Feats(0, 0, "Oui", "Oui", "", "", "", "", "", "", "", "", "", false));
     }
 
     endInsertRows();
     return true;
+}
+
+void FeatsModel::setList(FeatsList *list)
+{
+    beginResetModel();
+
+    if ( m_feats )
+        disconnect(m_feats);
+
+    m_feats = list;
+
+    if ( m_feats ) {
+        connect(m_feats, &FeatsList::pre_insert, [=](int index){
+            this->beginInsertRows(QModelIndex(),index, index);
+        } );
+        connect(m_feats, &FeatsList::post_insert, [=](){
+            this->endInsertRows();
+        } );
+
+        connect(m_feats, &FeatsList::itemChanged, this, &FeatsModel::checkChanged);
+    }
+    endResetModel();
 }
 
 QHash<int, QByteArray> FeatsModel::roleNames() const
@@ -117,4 +103,10 @@ QHash<int, QByteArray> FeatsModel::roleNames() const
     roles[DetailRole] = "detailFeat";
     roles[FavRole] = "isFav";
     return roles;
+}
+
+void FeatsModel::checkChanged(int index)
+{
+    auto row = this->index(index);
+    emit FeatsModel::dataChanged(row, row);
 }

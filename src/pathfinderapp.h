@@ -1,6 +1,7 @@
 #ifndef PATHFINDERAPP_H
 #define PATHFINDERAPP_H
 
+#include <QObject>
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include "featsmodel.h"
@@ -11,12 +12,15 @@
 
 using namespace std;
 
-class PathFinderApp
+class PathFinderApp : public QObject
 {
+    Q_OBJECT
 public:
+    Q_INVOKABLE void updateIsFavFeat(Feats * feats);
     PathFinderApp();
     void loadData(FeatsModel &model);
-    //void loadFav(FeatsModel &model);
+private:
+    QSqlDatabase m_db;
 };
 
 #endif // PATHFINDERAPP_H

@@ -15,13 +15,15 @@ Page {
 
             function setFav() {
                 if(!feat.isFav) {
-                    feat.isFav = true
+                    feat.isFav = 1
                     icon.highlighted = true
+                    pathFinderApp.updateIsFavFeat(feat)
                     console.log("Ajouté aux favoris !")
                 }
                 else {
-                    feat.isFav = false
+                    feat.isFav = 0
                     icon.highlighted = false
+                    pathFinderApp.updateIsFavFeat(feat)
                     console.log("Retiré des favoris !")
                 }
             }

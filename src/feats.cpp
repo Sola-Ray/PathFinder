@@ -6,7 +6,7 @@ Feats::Feats()
 
 Feats::Feats(const int id, const int version, const QString name, const QString description, const QString reference, const QString source,
              const QString summary, const QString category, const QString conditions, const QString requires, const QString advantage,
-             const QString special, const QString normal, const bool isFav) : m_id(id), m_version(version), m_isFav(isFav), m_name(name), m_description(description), m_reference(reference),
+             const QString special, const QString normal, const int isFav) : m_id(id), m_version(version), m_isFav(isFav), m_name(name), m_description(description), m_reference(reference),
              m_source(source), m_summary(summary), m_category(category), m_conditions(conditions), m_requires(requires), m_advantage(advantage),
              m_special(special), m_normal(normal)
 {
@@ -20,11 +20,6 @@ void Feats::setId(int id)
 void Feats::setVersion(int version)
 {
     m_version = version;
-}
-
-void Feats::setIsFav(bool isFav)
-{
-    m_isFav = isFav;
 }
 
 int Feats::id() const
@@ -102,6 +97,14 @@ void Feats::setName(QString arg)
     if(m_name != arg) {
         m_name = arg;
         emit nameChanged(arg);
+    }
+}
+
+void Feats::setIsFav(int arg)
+{
+    if(m_isFav != arg) {
+        m_isFav = arg;
+        emit isFavChanged(arg);
     }
 }
 

@@ -15,7 +15,9 @@ TARGET = Pathfinder
 CONFIG += sailfishapp
 
 SOURCES += src/Pathfinder.cpp \
+    src/favsortfilterproxymodel.cpp \
     src/feats.cpp \
+    src/featslist.cpp \
     src/featsmodel.cpp \
     src/pathfinderapp.cpp
 
@@ -53,7 +55,9 @@ database.path = /usr/share/$${TARGET}
 
 
 HEADERS += \
+    src/favsortfilterproxymodel.h \
     src/feats.h \
+    src/featslist.h \
     src/featsmodel.h \
     src/pathfinderapp.h
 

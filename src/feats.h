@@ -10,7 +10,7 @@ class Feats : public QObject
 public:
     Feats();
     Feats(const int id, const int version, const QString name, const QString description, const QString reference, const QString source, const QString summary,
-          const QString category, const QString conditions, const QString requires, const QString advantage, const QString special, const QString normal, const bool isFav);
+          const QString category, const QString conditions, const QString requires, const QString advantage, const QString special, const QString normal, const int isFav);
 
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged)
@@ -23,10 +23,10 @@ public:
     Q_PROPERTY(QString advantage READ advantage WRITE setAdvantage NOTIFY advantageChanged)
     Q_PROPERTY(QString special READ special WRITE setSpecial NOTIFY specialChanged)
     Q_PROPERTY(QString normal READ normal WRITE setNormal NOTIFY normalChanged)
+    Q_PROPERTY(int isFav READ isFav WRITE setIsFav NOTIFY isFavChanged)
 
     void setId(int id);
     void setVersion(int version);
-    void setIsFav(bool isFav);
 
     int id() const;
     int version() const;
@@ -44,6 +44,7 @@ public:
     QString normal() const;
 
 public slots:
+    void setIsFav(int arg);
     void setName(QString arg);
     void setAdvantage(QString arg);
     void setReference(QString arg);
@@ -57,6 +58,7 @@ public slots:
     void setDescription(QString arg);
 
 signals:
+    void isFavChanged(int arg);
     void nameChanged(QString arg);
     void advantageChanged(QString arg);
     void referenceChanged(QString arg);
@@ -72,7 +74,7 @@ signals:
 private:
     int m_id;
     int m_version;
-    bool m_isFav;
+    int m_isFav;
     QString m_name;
     QString m_description;
     QString m_reference;

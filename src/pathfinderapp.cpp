@@ -21,9 +21,8 @@ void PathFinderApp::loadData(FeatsModel &model)
         QSqlQuery query(m_db);
         query.exec("SELECT * FROM feats");
 
-        int i = 0;
         while(query.next()) {
-             list->insert(i, new Feats(query.value(0).toInt(), query.value(1).toInt(), query.value(2).toString(),
+             list->push_back(new Feats(query.value(0).toInt(), query.value(1).toInt(), query.value(2).toString(),
                                      query.value(3).toString(), query.value(4).toString(), query.value(5).toString(),
                                      query.value(6).toString(), query.value(7).toString(), query.value(8).toString(),
                                      query.value(9).toString(), query.value(10).toString(), query.value(11).toString(),

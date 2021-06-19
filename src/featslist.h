@@ -3,6 +3,8 @@
 
 #include "feats.h"
 
+#include <QDebug>
+
 #include <QObject>
 
 

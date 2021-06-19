@@ -107,6 +107,7 @@ QHash<int, QByteArray> FeatsModel::roleNames() const
 
 void FeatsModel::checkChanged(int index)
 {
+    qDebug() << "Favori " << index << " changed";
     auto row = this->index(index);
     emit FeatsModel::dataChanged(row, row);
 }

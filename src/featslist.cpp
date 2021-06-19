@@ -44,9 +44,12 @@ FeatsList::~FeatsList()
     }
 }
 
-void FeatsList::commeTuVeux2(int index)
+void FeatsList::commeTuVeux2(int value)
 {
-    emit itemChanged(index);
+    qDebug() << "Favori " << value << " changed";
+    Feats * feats = (Feats*)QObject::sender();
+    if(feats != nullptr && m_feats.indexOf(feats) != -1)
+        emit itemChanged(m_feats.indexOf(feats));
 }
 
 void FeatsList::registerFeats(int index)

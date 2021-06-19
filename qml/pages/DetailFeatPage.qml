@@ -37,6 +37,7 @@ Page {
     allowedOrientations: Orientation.All
 
     Column {
+        id: column
         anchors.top: header.bottom
         width: parent.width
 
@@ -47,21 +48,25 @@ Page {
             wrapMode: "WordWrap"
         }
         Label {
+            id: lblSrc
             text: "Source : " + feat.source
             width: parent.width
             wrapMode: "WordWrap"
         }
         Label {
+            id: lblCat
             text: "Catégorie : " + feat.category
             width: parent.width
             wrapMode: "WordWrap"
         }
         Label {
+            id: lblCdt
             text: "Conditions : " + feat.conditions
             width: parent.width
             wrapMode: "WordWrap"
         }
         Label {
+            id: lblDesc
             text: "Description : " + feat.description
             width: parent.width
             wrapMode: "WordWrap"

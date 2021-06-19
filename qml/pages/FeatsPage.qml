@@ -26,6 +26,7 @@ Page {
             onClicked: pageStack.push("DetailFeatPage.qml", { feat: detailFeat } )
         }
         VerticalScrollDecorator {}
+        SearchField {  }
     }
 
 }

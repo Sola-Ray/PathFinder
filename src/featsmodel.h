@@ -30,6 +30,7 @@ public:
                                 const QModelIndex &parent = QModelIndex()) override;
 
     Q_INVOKABLE void setList(FeatsList * list);
+
     protected:
         QHash<int, QByteArray> roleNames() const override;
     private:

@@ -17,16 +17,17 @@ Page {
         delegate: FeatItem {
             id: delegate
 
-//            Label {
-//                x: Theme.horizontalPageMargin
-//                text: qsTr("Don") + " " + index
-//                anchors.verticalCenter: parent.verticalCenter
-//                color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
-//            }
             onClicked: pageStack.push("DetailFeatPage.qml", { feat: detailFeat } )
         }
         VerticalScrollDecorator {}
-        SearchField {  }
+        SearchField{
+            id: search
+            onTextChanged: updateFilter()
+        }
+    }
+
+    function updateFilter() {
+        featsModel.setFilterFixedString(search.text)
     }
 
 }

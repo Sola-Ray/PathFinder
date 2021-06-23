@@ -10,17 +10,4 @@ ListItem {
             text: name
         }
     }
-
-    menu: ContextMenu {
-        MenuItem {
-            text: "Remove"
-            onClicked: remove()
-        }
-    }
-
-    function remove() {
-        remorseAction("Deleting", function() {
-            view.model.removeRows(index, 1)
-        })
-    }
 }

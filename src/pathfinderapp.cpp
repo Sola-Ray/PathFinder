@@ -30,7 +30,6 @@ void PathFinderApp::loadData(FeatsModel &model)
         }
         model.setList(list);
     }
-    //return list;
 }
 
 void PathFinderApp::updateIsFavFeat(Feats * feats)
@@ -38,11 +37,19 @@ void PathFinderApp::updateIsFavFeat(Feats * feats)
     if(!m_db.open()) {
         qDebug() << m_db.lastError();
     } else {
-        qDebug() << "IS UPDATING " << feats->isFav();
         QSqlQuery query(m_db);
+        qDebug() << "UPDATE feats " << feats->isFav() << " " << feats->id();
         query.prepare("UPDATE feats SET isfav = :isfav WHERE id = :id");
         query.bindValue(":isfav", feats->isFav());
         query.bindValue(":id", feats->id());
-        query.exec();
+        if(query.exec()) {
+            qDebug() << "Success !";
+        } else {
+            qDebug() << query.lastError();
+        }
+        query.exec("SELECT * FROM feats WHERE id = 1");
+        while(query.next()) {
+            qDebug() << "Select : " << query.value(13).toInt();
+        }
     }
 }

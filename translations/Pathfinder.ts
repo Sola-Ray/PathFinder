@@ -4,7 +4,7 @@
 <context>
     <name>CoverPage</name>
     <message>
-        <source>Pathfinder Cover !</source>
+        <source>Pathfinder</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

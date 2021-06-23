@@ -5,7 +5,7 @@ CoverBackground {
     Label {
         id: label
         anchors.centerIn: parent
-        text: qsTr("Pathfinder Cover !")
+        text: qsTr("Pathfinder")
     }
 
     CoverActionList {

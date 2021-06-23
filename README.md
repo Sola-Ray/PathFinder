@@ -39,6 +39,10 @@ Un PullDownMenu est présent dans la page d'accueil et permet de naviguer entre 
 
 Un clic sur un élément d'une des deux listes ouvre la page de détails.
 
+## SearchBar
+
+La liste des feats peut être filtrée en tapant du texte dans la SearchBar. Si le nom d'un feats contient le texte tapé, il sera affiché.
+
 ## Détails : modif
 
 La page de détails contient toutes les informations d'un Feats, vous noterez une petite étoile qui change de couleur quand vous cliquez dessus, cela signifie que vous avez ajouté en favoris le Feats si l'étoile est en surbrillance, sinon que vous l'avez retiré (par défaut, la liste des favoris est vide dans l'application).

@@ -49,7 +49,7 @@ La page de détails contient toutes les informations d'un Feats, vous noterez un
 
 ## Bugs
 
-On dirait que la liste des favoris n'est pas correctement filtrée depuis la BDD lorsqu'on ferme puis qu'on réouvre l'application mais je ne sais pas si c'est lié au fait que ce soit sur une machine virtuelle (et que du coup la BDD n'est pas correctement UPDATE) ou à autre chose.
+Impossible d'UPDATE la base de données et donc de sauvegarder la liste des favoris, une erreur stipulant que la BDD est en lecture seul nous en empêche.
 
 ## Précisions
 
